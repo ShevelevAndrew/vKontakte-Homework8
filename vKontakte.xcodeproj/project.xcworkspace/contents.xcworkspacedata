@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:vKontakte.xcodeproj">
+      location = "self:/Users/andrew/Desktop/Swift2/vKontakte Homework2/vKontakte.xcodeproj">
    </FileRef>
 </Workspace>
