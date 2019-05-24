@@ -6,4 +6,10 @@
 //  Copyright © 2019 Andrew. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct FriendsModel {
+    
+    var name: String
+    var image: UIImage
+}

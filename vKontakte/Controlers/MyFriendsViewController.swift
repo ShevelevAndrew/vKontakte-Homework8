@@ -10,6 +10,14 @@ import UIKit
 
 class MyFriendsViewController: UITableViewController {
 
+    var friends: [FriendsModel] = [
+        FriendsModel(name: "Василий", image: UIImage(named: "user")!),
+        FriendsModel(name: "Петр", image: UIImage(named: "user")!),
+        FriendsModel(name: "Иван", image: UIImage(named: "user")!),
+        FriendsModel(name: "Сергей", image: UIImage(named: "user")!),
+    ]
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,7 +27,7 @@ class MyFriendsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return friends.count
     }
 
     
@@ -27,6 +35,8 @@ class MyFriendsViewController: UITableViewController {
        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsCell.reuseIdentifier, for: indexPath) as?
             FriendsCell else { return UITableViewCell() }
+        
+        cell.friendNameLabel.text = friends[indexPath.row].name
         
         return cell
     }
