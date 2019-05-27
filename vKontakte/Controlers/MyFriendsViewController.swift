@@ -9,15 +9,15 @@
 import UIKit
 
 class MyFriendsViewController: UITableViewController {
-
+   
+    
     var friends: [FriendsModel] = [
-        FriendsModel(name: "Василий", image: UIImage(named: "user")!),
-        FriendsModel(name: "Петр", image: UIImage(named: "user")!),
-        FriendsModel(name: "Иван", image: UIImage(named: "user")!),
-        FriendsModel(name: "Сергей", image: UIImage(named: "user")!),
+        FriendsModel(name: "Василий", image: UIImage(named: "user1")!),
+        FriendsModel(name: "Марина", image: UIImage(named: "user2")!),
+        FriendsModel(name: "Светлана", image: UIImage(named: "user2")!),
+        FriendsModel(name: "Сергей", image: UIImage(named: "user1")!),
     ]
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,17 +26,20 @@ class MyFriendsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return friends.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsCell.reuseIdentifier, for: indexPath) as?
             FriendsCell else { return UITableViewCell() }
         
         cell.friendNameLabel.text = friends[indexPath.row].name
+       
+        cell.friendImageView.addShadow(offset: CGSize.init(width: 5, height: 5.0), color: UIColor.black, radius: 2.0, opacity: 0.4)
+
+        cell.addBorderAndImage(imageView: cell.friendImageView, image: friends[indexPath.row].image, frame: cell.friendImageView.bounds,
+                       cornerRadius: 20, borderColor: UIColor.black.cgColor, borderWidth: 1)
         
         return cell
     }
@@ -77,14 +80,52 @@ class MyFriendsViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+ 
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ForcastSeque",
+        let forecastController = segue.destination as? FriendsCollectionViewController,
+        let indexPath = tableView.indexPathForSelectedRow {
+ 
+        let friendName = friends[indexPath.row].name
+        forecastController.friendNameForTitle = friendName
+        forecastController.friendNameForLabel = friendName
+        forecastController.friendNameForImage = friends[indexPath.row].image
     }
-    */
-
+ 
+ }
+  
 }
+extension UIView {
+    
+    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
+        layer.masksToBounds = false
+        layer.shadowOffset = offset
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
+        
+        let backgroundCGColor = backgroundColor?.cgColor
+        backgroundColor = nil
+        layer.backgroundColor = backgroundCGColor
+    }
+    
+    func addBorderAndImage(imageView: UIImageView, image: UIImage, frame: CGRect, cornerRadius: CGFloat, borderColor: CGColor, borderWidth: CGFloat)  {
+        let borderView = UIView()
+        borderView.layer.frame = frame
+        borderView.layer.cornerRadius = cornerRadius
+        borderView.layer.borderColor = borderColor
+        borderView.layer.borderWidth = borderWidth
+        borderView.layer.masksToBounds = true
+        imageView.addSubview(borderView)
+        
+        let otherSubContent = UIImageView()
+        otherSubContent.image = image
+        otherSubContent.frame = borderView.bounds
+        borderView.addSubview(otherSubContent)
+    }
+}
+
+

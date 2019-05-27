@@ -44,23 +44,14 @@ class UserGroupViewController: UITableViewController {
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
             groupUser.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+ 
 
     /*
     // Override to support rearranging the table view.
@@ -85,7 +76,7 @@ class UserGroupViewController: UITableViewController {
             let indexPath = controller.tableView.indexPathForSelectedRow{
             let group = controller.groupUser[indexPath.row]
             
-            guard !groupUser.contains(where:{ $0.name == group.name }) else { return }
+            guard !groupUser.contains(where: { $0.name == group.name } ) else { return }
             
             groupUser.append(group)
             let newIndexPath = IndexPath(item: groupUser.count - 1, section:  0)

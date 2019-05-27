@@ -13,4 +13,8 @@ class ForcastCell: UICollectionViewCell {
     
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendImageView: UIImageView!
+ 
 }
+
+
+
