@@ -9,8 +9,9 @@
 import UIKit
 
 class LauncheControler: UIViewController {
-
+    
     //MARK: - Outlets
+    
     @IBOutlet weak var scrolView: UIScrollView!
     @IBOutlet weak var titlrLabel: UILabel!
     
@@ -24,8 +25,8 @@ class LauncheControler: UIViewController {
     }
     @IBAction func loginButtonPress(_ sender: UIButton) {
        checkTextField()
-        
     }
+    
     
     func checkTextField(){
         if userNametext.text == "",
@@ -99,3 +100,4 @@ class LauncheControler: UIViewController {
     
     //MARK: - Segues
 }
+

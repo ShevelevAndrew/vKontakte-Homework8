@@ -71,7 +71,8 @@ class UserGroupViewController: UITableViewController {
     
     // MARK: - Navigation
 
-    @IBAction func addGroup(segue: UIStoryboardSegue) {
+    //@IBAction
+    func addGroup(segue: UIStoryboardSegue) {
         if let controller = segue.source as? SearchGroupViewController,
             let indexPath = controller.tableView.indexPathForSelectedRow{
             let group = controller.groupUser[indexPath.row]

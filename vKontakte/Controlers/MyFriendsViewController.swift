@@ -9,24 +9,73 @@
 import UIKit
 
 class MyFriendsViewController: UITableViewController {
-   
+  
+    //var tableViewData = [String]()
+    //var indexes = [String]()
+
     
     var friends: [FriendsModel] = [
-        FriendsModel(name: "Василий", image: UIImage(named: "user1")!),
-        FriendsModel(name: "Марина", image: UIImage(named: "user2")!),
-        FriendsModel(name: "Светлана", image: UIImage(named: "user2")!),
-        FriendsModel(name: "Сергей", image: UIImage(named: "user1")!),
+        FriendsModel(name: "Василий", image: UIImage(named: "user1")!, likeCount: "1"),
+        FriendsModel(name: "Александр", image: UIImage(named: "user1")!, likeCount: "12"),
+        FriendsModel(name: "Светлана", image: UIImage(named: "user2")!, likeCount: "13"),
+        FriendsModel(name: "Сергей", image: UIImage(named: "user1")!, likeCount: "14"),
+        FriendsModel(name: "Мария", image: UIImage(named: "user2")!, likeCount: "15"),
+        FriendsModel(name: "Ася", image: UIImage(named: "user2")!, likeCount: "16"),
+        FriendsModel(name: "Петр", image: UIImage(named: "user1")!, likeCount: "17"),
+        FriendsModel(name: "Ольга", image: UIImage(named: "user2")!, likeCount: "18"),
+        FriendsModel(name: "Тимофей", image: UIImage(named: "user1")!, likeCount: "19"),
+        FriendsModel(name: "Андрей", image: UIImage(named: "user1")!, likeCount: "10"),
+        FriendsModel(name: "Елисей", image: UIImage(named: "user1")!, likeCount: "19")
     ]
-
+    //var friendsSorted: [FriendsModel]
+    var friendDictionary = [String:[FriendsModel]]()
+    var friendSectionTitle = [String]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let jastNumbers = "222 333 333 543 5564 4454 444"
+//        tableViewData = jastNumbers.components(separatedBy: " ")
+//
+       // let numbersForIndexes = "А Б В М Н О П Р С Т"
+        friends = friends.sorted(by: {$0.name < $1.name})
+        for friend in friends {
+            let friendKey = String(friend.name.prefix(1))
+            if var friendValues = friendDictionary[friendKey] {
 
+                friendValues.append(friend)
+                friendDictionary[friendKey] = friendValues
+                
+            } else {
+                friendDictionary[friendKey] = [friend]
+            }
+        }
+        
+        friendSectionTitle = [String](friendDictionary.keys)
+        friendSectionTitle = friendSectionTitle.sorted(by: {$0 < $1})
+
+        
+
+//        for (index, element) in friends.enumerated() {
+//            indexes.append(element.name)
+//        }
+       // indexes = numbersForIndexes.components(separatedBy: " ")
+  
+        
     }
+
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        //return friends.count
+        
+        let friendKey = friendSectionTitle[section]
+        if let friendValues = friendDictionary[friendKey] {
+            return friendValues.count
+        }
+        return 0
     }
 
     
@@ -34,16 +83,38 @@ class MyFriendsViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsCell.reuseIdentifier, for: indexPath) as?
             FriendsCell else { return UITableViewCell() }
         
-        cell.friendNameLabel.text = friends[indexPath.row].name
-       
-        cell.friendImageView.addShadow(offset: CGSize.init(width: 5, height: 5.0), color: UIColor.black, radius: 2.0, opacity: 0.4)
-
-        cell.addBorderAndImage(imageView: cell.friendImageView, image: friends[indexPath.row].image, frame: cell.friendImageView.bounds,
-                       cornerRadius: 20, borderColor: UIColor.black.cgColor, borderWidth: 1)
-        
+//        cell.friendNameLabel.text = friends[indexPath.row].name
+//        cell.friendImageView.image = friends[indexPath.row].image
+//        return cell
+        let friendKey = friendSectionTitle[indexPath.section]
+        if let friendValues = friendDictionary[friendKey] {
+            cell.friendNameLabel.text = friendValues[indexPath.row].name
+            cell.friendImageView.image = friendValues[indexPath.row].image
+        }
         return cell
     }
   
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+        return friendSectionTitle.count
+    }
+    
+    
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return friendSectionTitle
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return friendSectionTitle[section]
+    }
+
+//    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+//        let temp = indexes as NSArray
+//
+//        return temp.index(of: title)
+//    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -89,43 +160,30 @@ class MyFriendsViewController: UITableViewController {
         let forecastController = segue.destination as? FriendsCollectionViewController,
         let indexPath = tableView.indexPathForSelectedRow {
  
-        let friendName = friends[indexPath.row].name
-        forecastController.friendNameForTitle = friendName
-        forecastController.friendNameForLabel = friendName
-        forecastController.friendNameForImage = friends[indexPath.row].image
+//        let friendName = friends[indexPath.row].name
+//        forecastController.friendNameForTitle = friendName
+//        forecastController.friendNameForLabel = friendName
+//
+//        forecastController.friendNameForImage = friends[indexPath.row].image
+//
+//        forecastController.likeCount = friends[indexPath.row].likeCount
+        let friendKey = friendSectionTitle[indexPath.section]
+        if let friendValues = friendDictionary[friendKey] {
+            forecastController.friendNameForTitle = friendValues[indexPath.row].name
+            forecastController.friendNameForLabel = friendValues[indexPath.row].name
+            forecastController.friendNameForImage = friendValues[indexPath.row].image
+            forecastController.likeCount = friendValues[indexPath.row].likeCount
+        }
+        
     }
- 
  }
-  
-}
-extension UIView {
     
-    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
-        layer.masksToBounds = false
-        layer.shadowOffset = offset
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = radius
-        layer.shadowOpacity = opacity
-        
-        let backgroundCGColor = backgroundColor?.cgColor
-        backgroundColor = nil
-        layer.backgroundColor = backgroundCGColor
-    }
-    
-    func addBorderAndImage(imageView: UIImageView, image: UIImage, frame: CGRect, cornerRadius: CGFloat, borderColor: CGColor, borderWidth: CGFloat)  {
-        let borderView = UIView()
-        borderView.layer.frame = frame
-        borderView.layer.cornerRadius = cornerRadius
-        borderView.layer.borderColor = borderColor
-        borderView.layer.borderWidth = borderWidth
-        borderView.layer.masksToBounds = true
-        imageView.addSubview(borderView)
-        
-        let otherSubContent = UIImageView()
-        otherSubContent.image = image
-        otherSubContent.frame = borderView.bounds
-        borderView.addSubview(otherSubContent)
-    }
+
 }
+
+
+// MARK: - Extension
+
+
 
 

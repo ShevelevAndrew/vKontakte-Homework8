@@ -12,4 +12,5 @@ struct FriendsModel {
     
     var name: String
     var image: UIImage
+    var likeCount: String
 }

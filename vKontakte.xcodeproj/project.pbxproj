@@ -22,6 +22,7 @@
 		499A983022919B2400356DB7 /* FriendsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A982F22919B2400356DB7 /* FriendsCollectionViewController.swift */; };
 		499A983222919B7F00356DB7 /* UserGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A983122919B7F00356DB7 /* UserGroupViewController.swift */; };
 		499A983422919BC800356DB7 /* SearchGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A983322919BC800356DB7 /* SearchGroupViewController.swift */; };
+		49CA469D229D85A8008BA1FD /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CA469C229D85A8008BA1FD /* UIView-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		499A982F22919B2400356DB7 /* FriendsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewController.swift; sourceTree = "<group>"; };
 		499A983122919B7F00356DB7 /* UserGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupViewController.swift; sourceTree = "<group>"; };
 		499A983322919BC800356DB7 /* SearchGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupViewController.swift; sourceTree = "<group>"; };
+		49CA469C229D85A8008BA1FD /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				499A982F22919B2400356DB7 /* FriendsCollectionViewController.swift */,
 				499A983122919B7F00356DB7 /* UserGroupViewController.swift */,
 				499A983322919BC800356DB7 /* SearchGroupViewController.swift */,
+				49CA469C229D85A8008BA1FD /* UIView-Extension.swift */,
 			);
 			path = Controlers;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				498E13542296B3DC00C72ECA /* ForcastCell.swift in Sources */,
+				49CA469D229D85A8008BA1FD /* UIView-Extension.swift in Sources */,
 				498E13592296F3D900C72ECA /* FriendsModel.swift in Sources */,
 				499A982E22919ABB00356DB7 /* MyFriendsViewController.swift in Sources */,
 				499A983222919B7F00356DB7 /* UserGroupViewController.swift in Sources */,
