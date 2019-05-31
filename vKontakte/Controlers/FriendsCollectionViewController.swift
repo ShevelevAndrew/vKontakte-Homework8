@@ -26,12 +26,11 @@ class FriendsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         title = friendNameForTitle
-        
-        
-
+      
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        
         likeButton.addTarget(self, action: #selector(likeButtonDidtapped), for: .valueChanged)
     }
     /*
@@ -52,6 +51,7 @@ class FriendsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ForcastCell.reuseIdentifier, for: indexPath) as?
         ForcastCell else { return UICollectionViewCell() }
         
@@ -61,6 +61,7 @@ class FriendsCollectionViewController: UICollectionViewController {
         cell.likeCount.text = likeCount
         likeButton = cell.likeButton
         likeCountLabel = cell.likeCount
+        
         return cell
     }
 
@@ -99,7 +100,9 @@ class FriendsCollectionViewController: UICollectionViewController {
 
         if likeButton.isLaiked {
             likeCountLabel.text = String(Int(likeCount)! + 1)
+            
         } else {
+            
             likeCountLabel.text = String(Int(likeCountLabel.text!)! - 1)
         }
         
@@ -164,5 +167,6 @@ class Likebutton: UIControl {
 }
 
 extension Int {
+    
     var degreesToRadians: CGFloat { return CGFloat(self) * .pi / 180}
 }

@@ -29,20 +29,11 @@ extension UIView {
         let cuslayer = CALayer()
         layer.masksToBounds = false
         //clipsToBounds = true
-        //(offset: CGSize.init(width: 5, height: 5.0), color: UIColor.black, radius: 2.0, opacity: 0.4)
-        //        layer.masksToBounds = false
-        //        layer.shadowOffset = offset
-        //        layer.shadowColor = color.cgColor
-        //        layer.shadowRadius = radius
-        //        layer.shadowOpacity = opacity
-        //let backgroundCGColor = backgroundColor?.cgColor
-        //        backgroundColor = nil
-        //        layer.backgroundColor = backgroundCGColor
         layer.shadowColor = shadowColor
         layer.shadowOffset = shadowOffset
         layer.shadowRadius = shadowRadius
         layer.shadowOpacity = shadowOpacity
-        //layer.shadowPath = UIBezierPath(roundedRect: layer.bounds, cornerRadius: layer.cornerRadius).cgPath
+        layer.shadowPath = UIBezierPath(roundedRect: layer.bounds, cornerRadius: layer.cornerRadius).cgPath
         
         let backgroundColor = self.backgroundColor?.cgColor
         self.backgroundColor = nil
