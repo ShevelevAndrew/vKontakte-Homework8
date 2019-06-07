@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490F2F6822AA69140020B8C9 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490F2F6722AA69140020B8C9 /* CustomCell.xib */; };
+		490F2F6A22AA6B160020B8C9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490F2F6922AA6B160020B8C9 /* GradientView.swift */; };
+		490F2F6C22AA6C900020B8C9 /* CustomTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490F2F6B22AA6C900020B8C9 /* CustomTableviewCell.swift */; };
 		498E13522296B04A00C72ECA /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E13512296B04A00C72ECA /* FriendsCell.swift */; };
 		498E13542296B3DC00C72ECA /* ForcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E13532296B3DC00C72ECA /* ForcastCell.swift */; };
 		498E13572296E07F00C72ECA /* GroopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E13562296E07F00C72ECA /* GroopCell.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490F2F6722AA69140020B8C9 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		490F2F6922AA6B160020B8C9 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		490F2F6B22AA6C900020B8C9 /* CustomTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableviewCell.swift; sourceTree = "<group>"; };
 		498E13512296B04A00C72ECA /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
 		498E13532296B3DC00C72ECA /* ForcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastCell.swift; sourceTree = "<group>"; };
 		498E13562296E07F00C72ECA /* GroopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroopCell.swift; sourceTree = "<group>"; };
@@ -63,6 +69,9 @@
 				498E13532296B3DC00C72ECA /* ForcastCell.swift */,
 				498E13512296B04A00C72ECA /* FriendsCell.swift */,
 				498E13562296E07F00C72ECA /* GroopCell.swift */,
+				490F2F6722AA69140020B8C9 /* CustomCell.xib */,
+				490F2F6922AA6B160020B8C9 /* GradientView.swift */,
+				490F2F6B22AA6C900020B8C9 /* CustomTableviewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 			files = (
 				498EB7D5228BBAC800657B22 /* LaunchScreen.storyboard in Resources */,
 				498EB7D2228BBAC800657B22 /* Assets.xcassets in Resources */,
+				490F2F6822AA69140020B8C9 /* CustomCell.xib in Resources */,
 				498EB7D0228BBAC500657B22 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +206,7 @@
 				49CA469D229D85A8008BA1FD /* UIView-Extension.swift in Sources */,
 				498E13592296F3D900C72ECA /* FriendsModel.swift in Sources */,
 				499A982E22919ABB00356DB7 /* MyFriendsViewController.swift in Sources */,
+				490F2F6A22AA6B160020B8C9 /* GradientView.swift in Sources */,
 				499A983222919B7F00356DB7 /* UserGroupViewController.swift in Sources */,
 				499A983022919B2400356DB7 /* FriendsCollectionViewController.swift in Sources */,
 				498E135B2296F3F900C72ECA /* GroupModel.swift in Sources */,
@@ -204,6 +215,7 @@
 				499A983422919BC800356DB7 /* SearchGroupViewController.swift in Sources */,
 				498EB7DD228BC49E00657B22 /* LauncheControler.swift in Sources */,
 				498EB7CB228BBAC500657B22 /* AppDelegate.swift in Sources */,
+				490F2F6C22AA6C900020B8C9 /* CustomTableviewCell.swift in Sources */,
 				498E13522296B04A00C72ECA /* FriendsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

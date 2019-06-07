@@ -14,15 +14,16 @@ class LauncheControler: UIViewController {
     
     @IBOutlet weak var scrolView: UIScrollView!
     @IBOutlet weak var titlrLabel: UILabel!
-    
     @IBOutlet weak var userNametext: UITextField!
     @IBOutlet weak var userPassText: UITextField!
     
     //MARK: - Actions
+    
     @IBAction func unwinSegue(unwindSegue: UIStoryboardSegue){
         // при нажатии на крестик
         
     }
+    
     @IBAction func loginButtonPress(_ sender: UIButton) {
        checkTextField()
     }
@@ -34,9 +35,7 @@ class LauncheControler: UIViewController {
             print("Suces ok")
             performSegue(withIdentifier: "showTabBarContoller", sender: nil)
         } else {
-            
             let alert = UIAlertController(title: "Error", message: "Incorect LoginName or Password", preferredStyle: .alert)
-            
             let action = UIAlertAction(title: "OK", style: .default) { _ in
                 self.userPassText.text = ""
             }
@@ -44,57 +43,46 @@ class LauncheControler: UIViewController {
             present(alert, animated: true)
             
         }
-        
     }
     
     //MARK: - Live cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let hideKeybordGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrolView?.addGestureRecognizer(hideKeybordGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keybordWasShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keybordWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
     
     //MARK: - Keybord
-   @objc func keybordWasShow(notification: Notification) {
     
+   @objc func keybordWasShow(notification: Notification) {
         let info = notification.userInfo! as NSDictionary
-        let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size //Поправил ошибку HW1
-        
+        let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
         let contentInsert = UIEdgeInsets(top: 0, left: 0, bottom: kbSize.height, right: 0)
         
         self.scrolView?.contentInset = contentInsert
         scrolView?.scrollIndicatorInsets = contentInsert
-    
     }
     
     @objc func keybordWillBeHidden(notification: Notification) {
-        
        let contentInsets = UIEdgeInsets.zero
         self.scrolView?.contentInset = contentInsets
         scrolView?.scrollIndicatorInsets = contentInsets
-        
     }
     
     @objc func hideKeyboard(){
-        
        self.scrolView.endEditing(true)
     }
     

@@ -17,7 +17,6 @@ class ForcastCell: UICollectionViewCell {
     @IBOutlet weak var likeCount: UILabel!
     @IBOutlet weak var likeButton: Likebutton!
  
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

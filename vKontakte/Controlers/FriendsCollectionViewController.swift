@@ -10,14 +10,10 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-
-
 class FriendsCollectionViewController: UICollectionViewController {
-
     var friendNameForTitle: String = ""
     var friendNameForLabel: String = ""
     var friendNameForImage: UIImage = UIImage(named: "user")!
-    
     var likeCount: String = ""
     weak var likeCountLabel: UILabel!
     weak var likeButton: Likebutton!
@@ -30,18 +26,11 @@ class FriendsCollectionViewController: UICollectionViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
         likeButton.addTarget(self, action: #selector(likeButtonDidtapped), for: .valueChanged)
     }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -51,7 +40,6 @@ class FriendsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ForcastCell.reuseIdentifier, for: indexPath) as?
         ForcastCell else { return UICollectionViewCell() }
         
@@ -66,69 +54,31 @@ class FriendsCollectionViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
     
     @objc func likeButtonDidtapped() {
-
         if likeButton.isLaiked {
             likeCountLabel.text = String(Int(likeCount)! + 1)
-            
         } else {
-            
             likeCountLabel.text = String(Int(likeCountLabel.text!)! - 1)
         }
-        
     }
-
 }
 
 
 class Likebutton: UIControl {
-    
     var isLaiked: Bool = false
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupView()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         setupView()
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        
         let sideOne = rect.height * 0.4
         let sideTwo = rect.height * 0.3
         let arcRadius = sqrt(sideOne * sideOne + sideTwo * sideTwo) / 2
@@ -145,7 +95,6 @@ class Likebutton: UIControl {
         UIColor.red.setStroke()
         UIColor.red.setFill()
         
-        
         isLaiked ? path.fill() : path.stroke()
     }
     
@@ -154,10 +103,7 @@ class Likebutton: UIControl {
         //self.backgroundColor = UIColor.gray
         self.layer.cornerRadius = min(self.bounds.height, self.bounds.width) / 5
         clipsToBounds = true
-        
     }
-    
-    
     
     @objc func changeState() {
         isLaiked.toggle()
@@ -167,6 +113,5 @@ class Likebutton: UIControl {
 }
 
 extension Int {
-    
     var degreesToRadians: CGFloat { return CGFloat(self) * .pi / 180}
 }

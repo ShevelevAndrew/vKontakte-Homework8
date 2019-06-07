@@ -23,8 +23,8 @@ extension UIView {
         }
     }
     
-    fileprivate func addShadow(shadowColor: CGColor = UIColor.black.cgColor, shadowOffset: CGSize = CGSize.init(width: 4.0, height: 4.0),
-                               shadowOpacity: Float = 0.8, shadowRadius: CGFloat = 2.0) {
+    fileprivate func addShadow(shadowColor: CGColor = UIColor.black.cgColor, shadowOffset: CGSize = CGSize.init(width: 3.0, height: 3.0),
+                               shadowOpacity: Float = 1, shadowRadius: CGFloat = 3.0) {
         let layer = self.layer
         let cuslayer = CALayer()
         layer.masksToBounds = false
@@ -33,7 +33,7 @@ extension UIView {
         layer.shadowOffset = shadowOffset
         layer.shadowRadius = shadowRadius
         layer.shadowOpacity = shadowOpacity
-        layer.shadowPath = UIBezierPath(roundedRect: layer.bounds, cornerRadius: layer.cornerRadius).cgPath
+        //layer.shadowPath = UIBezierPath(roundedRect: layer.bounds, cornerRadius: layer.cornerRadius).cgPath
         
         let backgroundColor = self.backgroundColor?.cgColor
         self.backgroundColor = nil

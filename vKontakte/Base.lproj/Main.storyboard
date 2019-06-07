@@ -119,17 +119,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nZ1-IJ-ZOv">
-                            <size key="itemSize" width="273" height="293"/>
+                            <size key="itemSize" width="273" height="277"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" misplaced="YES" reuseIdentifier="ForcastCell" id="Ynd-Iv-5dA" customClass="ForcastCell" customModule="vKontakte" customModuleProvider="target">
-                                <rect key="frame" x="70.666666666666671" y="0.0" width="273" height="293"/>
+                                <rect key="frame" x="70.666666666666671" y="0.0" width="273" height="277"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="273" height="293"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="273" height="277"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="more Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo7-u3-7hP">
@@ -225,6 +225,23 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="91.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ML0-P9-Min">
+                                            <rect key="frame" x="16" y="8" width="70" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="circle" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="30"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-g6-QMr">
                                             <rect key="frame" x="16" y="8" width="70" height="70"/>
                                             <constraints>
@@ -232,17 +249,16 @@
                                                 <constraint firstAttribute="width" constant="70" id="zHk-9A-AGC"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="1"/>
-                                                </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                     <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="circle" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="circle" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="30"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6m1-V9-WgU">
@@ -265,6 +281,7 @@
                                 <connections>
                                     <outlet property="friendImageView" destination="BjM-g6-QMr" id="nT0-uj-J6E"/>
                                     <outlet property="friendNameLabel" destination="6m1-V9-WgU" id="rCR-vh-E7Q"/>
+                                    <outlet property="friendShadowView" destination="ML0-P9-Min" id="qP9-r1-gVu"/>
                                     <segue destination="BVZ-j6-57K" kind="show" identifier="ForcastSeque" id="GEt-op-G8x"/>
                                 </connections>
                             </tableViewCell>
@@ -278,7 +295,7 @@
                     <navigationItem key="navigationItem" title="Список друзей" id="hfQ-lm-xDm">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="yTh-1C-mhz">
                             <connections>
-                                <segue destination="7t5-4c-1Xw" kind="unwind" unwindAction="unwinSegueWithUnwindSegue:" id="p7N-bD-CKS"/>
+                                <segue destination="7t5-4c-1Xw" kind="unwind" identifier="" unwindAction="unwinSegueWithUnwindSegue:" id="p7N-bD-CKS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -340,7 +357,7 @@
                     <navigationItem key="navigationItem" title="Группы " id="Iay-m2-7ii">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="xKv-3x-YFM">
                             <connections>
-                                <segue destination="Fb3-pP-a2r" kind="unwind" unwindAction="unwinSegueWithUnwindSegue:" id="bj1-b5-pnH"/>
+                                <segue destination="Fb3-pP-a2r" kind="unwind" identifier="UnwindToMyFriend" unwindAction="addGroupWithSegue:" id="bj1-b5-pnH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b2j-Ln-2E1">
@@ -419,7 +436,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="iM7-0v-881">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="KTg-WJ-Nj7" kind="relationship" relationship="viewControllers" id="Y2L-rc-WJ9"/>

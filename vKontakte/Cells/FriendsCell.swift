@@ -14,10 +14,10 @@ class FriendsCell: UITableViewCell {
     
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendImageView: UIImageView!
-
+    
+    @IBOutlet weak var friendShadowView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-      
     }
-
 }
