@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -31,8 +31,13 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="Epu-YE-GOb"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="userNameText:" destination="qkx-aY-zzA" eventType="editingDidEnd" id="jTz-QZ-aN7"/>
                                         </connections>
@@ -48,12 +53,17 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="loginButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="omn-Wh-br4"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPy-7Z-fpe">
-                                        <rect key="frame" x="180" y="33" width="54.333333333333343" height="48"/>
+                                        <rect key="frame" x="180" y="33" width="54" height="48"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="40"/>
                                         <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -65,8 +75,13 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="ZjN-Tq-u2i"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -98,6 +113,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="jI1-m1-KCw" id="cBe-11-OZq"/>
                         <outlet property="scrolView" destination="Mub-xy-MyG" id="boc-Sb-TTd"/>
                         <outlet property="titlrLabel" destination="gPy-7Z-fpe" id="aEv-ox-chJ"/>
                         <outlet property="userNametext" destination="jIk-rL-hWP" id="3ny-xX-HPb"/>
@@ -119,17 +135,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nZ1-IJ-ZOv">
-                            <size key="itemSize" width="273" height="277"/>
+                            <size key="itemSize" width="273" height="282"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" misplaced="YES" reuseIdentifier="ForcastCell" id="Ynd-Iv-5dA" customClass="ForcastCell" customModule="vKontakte" customModuleProvider="target">
-                                <rect key="frame" x="70.666666666666671" y="0.0" width="273" height="277"/>
+                                <rect key="frame" x="70.5" y="0.0" width="273" height="282"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="273" height="277"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="273" height="282"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="more Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo7-u3-7hP">
@@ -139,7 +155,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="aq3-HR-Zub">
-                                            <rect key="frame" x="61.666666666666657" y="57" width="150" height="150"/>
+                                            <rect key="frame" x="61.5" y="57" width="150" height="150"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="OhI-gx-z0e"/>
                                                 <constraint firstAttribute="width" secondItem="aq3-HR-Zub" secondAttribute="height" multiplier="1:1" id="tPS-Cv-wDX"/>
@@ -154,7 +170,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TL9-Tx-avi" customClass="Likebutton" customModule="vKontakte" customModuleProvider="target">
-                                            <rect key="frame" x="91.333333333333329" y="239" width="30" height="30"/>
+                                            <rect key="frame" x="91.5" y="239" width="30" height="30"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="TEp-fT-37I"/>
@@ -173,7 +189,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP9-tw-1vR">
-                                            <rect key="frame" x="126.33333333333333" y="246" width="20.333333333333329" height="14"/>
+                                            <rect key="frame" x="126.5" y="246" width="20" height="14"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -207,22 +223,22 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qeR-Hi-XOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3911.594202898551" y="-281.25"/>
+            <point key="canvasLocation" x="3912" y="-869"/>
         </scene>
         <!--Список друзей-->
         <scene sceneID="Mz6-rL-8kL">
             <objects>
                 <tableViewController id="WpH-8r-Otu" customClass="MyFriendsViewController" customModule="vKontakte" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nOV-ex-Ea9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nOV-ex-Ea9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsCell" rowHeight="92" id="LAi-Gd-yaS" customClass="FriendsCell" customModule="vKontakte" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LAi-Gd-yaS" id="vta-os-5zt">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="91.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ML0-P9-Min">
@@ -303,22 +319,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWP-sD-IXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7t5-4c-1Xw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3013.04347826087" y="-281.25"/>
+            <point key="canvasLocation" x="3012" y="-869"/>
         </scene>
         <!--Группы-->
         <scene sceneID="d1x-cZ-vJ6">
             <objects>
                 <tableViewController title="Группы" id="sIn-2f-hYm" customClass="UserGroupViewController" customModule="vKontakte" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ulq-Bb-7ro">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ulq-Bb-7ro">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroopCell" rowHeight="128" id="DaD-43-p2e" customClass="GroopCell" customModule="vKontakte" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DaD-43-p2e" id="9jF-SH-00s">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="127.66666666666667"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="92I-EQ-I5H">
@@ -329,7 +345,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAs-l3-1t4">
-                                            <rect key="frame" x="16" y="53.333333333333336" width="42" height="21.000000000000007"/>
+                                            <rect key="frame" x="16" y="53.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -357,7 +373,7 @@
                     <navigationItem key="navigationItem" title="Группы " id="Iay-m2-7ii">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="xKv-3x-YFM">
                             <connections>
-                                <segue destination="Fb3-pP-a2r" kind="unwind" identifier="UnwindToMyFriend" unwindAction="addGroupWithSegue:" id="bj1-b5-pnH"/>
+                                <segue destination="Fb3-pP-a2r" kind="unwind" identifier="" unwindAction="unwinSegueWithUnwindSegue:" id="bj1-b5-pnH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b2j-Ln-2E1">
@@ -370,26 +386,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJx-82-Ibw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Fb3-pP-a2r" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3011.594202898551" y="426.5625"/>
+            <point key="canvasLocation" x="3012" y="19"/>
         </scene>
         <!--Список групп-->
         <scene sceneID="Fc4-dO-ik2">
             <objects>
                 <tableViewController title="Список групп" id="hkQ-vh-NnF" customClass="SearchGroupViewController" customModule="vKontakte" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yuS-XL-dbW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yuS-XL-dbW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroopCell" rowHeight="102" id="lkq-qT-CtQ" customClass="GroopCell" customModule="vKontakte" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="102"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lkq-qT-CtQ" id="IPQ-p1-2ZN">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="101.66666666666667"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLi-d1-1x7">
-                                            <rect key="frame" x="16" y="40.333333333333336" width="42" height="21"/>
+                                            <rect key="frame" x="16" y="40.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -413,7 +429,7 @@
                                 <connections>
                                     <outlet property="groopImageView" destination="lbV-Xj-KLF" id="GTx-16-PeM"/>
                                     <outlet property="groopNameLabel" destination="WLi-d1-1x7" id="Lex-AJ-9La"/>
-                                    <segue destination="cZt-88-ubr" kind="unwind" unwindAction="addGroupWithSegue:" id="FFB-MB-1of"/>
+                                    <segue destination="cZt-88-ubr" kind="unwind" identifier="UnwindToMyFriend" unwindAction="addGroupWithSegue:" id="FFB-MB-1of"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -426,7 +442,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4m-X9-88P" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cZt-88-ubr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3911.594202898551" y="426.5625"/>
+            <point key="canvasLocation" x="3912" y="19"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dFN-lM-Xcn">
+            <objects>
+                <navigationController id="UbV-N4-DuH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="news" id="NEe-j2-QHK"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fR3-PO-LIo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="C9Y-OP-UyY" kind="relationship" relationship="rootViewController" id="Qzz-DI-QXY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R5F-6U-PoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2116" y="854"/>
+        </scene>
+        <!--Новости-->
+        <scene sceneID="ewJ-kZ-MbD">
+            <objects>
+                <tableViewController id="C9Y-OP-UyY" customClass="NewsViewController" customModule="vKontakte" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VcX-mT-bUr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="422" id="NYc-lD-MD5" customClass="NewsCell" customModule="vKontakte" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="422"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NYc-lD-MD5" id="fB5-c7-yXH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="421.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="C9Y-OP-UyY" id="Zyy-EF-jDR"/>
+                            <outlet property="delegate" destination="C9Y-OP-UyY" id="H0f-uw-GbY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Новости" id="Zyq-tf-A8c"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dup-RT-zJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2998.5507246376815" y="853.79464285714278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YJq-17-L1e">
@@ -436,21 +500,28 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="iM7-0v-881">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="contentStretch" x="0.0" y="1" width="0.0" height="1"/>
+                        <color key="barTintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="KTg-WJ-Nj7" kind="relationship" relationship="viewControllers" id="Y2L-rc-WJ9"/>
                         <segue destination="iEv-N6-hi6" kind="relationship" relationship="viewControllers" id="NBS-0B-SKe"/>
+                        <segue destination="UbV-N4-DuH" kind="relationship" relationship="viewControllers" id="Z3m-J3-5jD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOZ-Rv-dXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939" y="19"/>
         </scene>
-        <!--Friends-->
+        <!--Navigation Controller-->
         <scene sceneID="bPf-Vc-lsN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KTg-WJ-Nj7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" image="friends" id="rrd-Ru-VRX"/>
+                    <tabBarItem key="tabBarItem" title="" image="friends" id="rrd-Ru-VRX">
+                        <color key="badgeColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="59n-ke-hYT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -463,13 +534,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hex-q1-63f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2117" y="-281"/>
+            <point key="canvasLocation" x="2116" y="-868"/>
         </scene>
-        <!--Groups-->
+        <!--Navigation Controller-->
         <scene sceneID="ki8-g2-M4A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iEv-N6-hi6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Groups" image="user" id="Alm-Ve-CJ3">
+                    <tabBarItem key="tabBarItem" title="" image="group" id="Alm-Ve-CJ3">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -484,11 +555,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfN-E3-dmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2116" y="427"/>
+            <point key="canvasLocation" x="2116" y="19"/>
         </scene>
     </scenes>
     <resources>
         <image name="friends" width="32" height="32"/>
+        <image name="group" width="32" height="32"/>
+        <image name="news" width="32" height="32"/>
         <image name="user" width="32" height="32"/>
     </resources>
 </document>

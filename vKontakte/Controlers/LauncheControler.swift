@@ -12,6 +12,7 @@ class LauncheControler: UIViewController {
     
     //MARK: - Outlets
     
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var scrolView: UIScrollView!
     @IBOutlet weak var titlrLabel: UILabel!
     @IBOutlet weak var userNametext: UITextField!
@@ -51,6 +52,24 @@ class LauncheControler: UIViewController {
         super.viewDidLoad()
         let hideKeybordGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrolView?.addGestureRecognizer(hideKeybordGesture)
+        
+        animations()
+    }
+    
+    private func animations() {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.stiffness = 200
+        animation.mass = 2
+        animation.duration = 2
+        animation.beginTime = CACurrentMediaTime() + 1
+        animation.fillMode = CAMediaTimingFillMode.backwards
+        
+        self.titlrLabel.layer.add(animation, forKey: nil)
+        self.userNametext.layer.add(animation, forKey: nil)
+        self.userPassText.layer.add(animation, forKey: nil)
+        self.loginButton.layer.add(animation, forKey: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
