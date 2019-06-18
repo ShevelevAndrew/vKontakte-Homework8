@@ -15,16 +15,25 @@ class FriendsCollectionViewController: UICollectionViewController {
     var friendNameForLabel: String = ""
     var friendNameForImage: UIImage = UIImage(named: "user")!
     var likeCount: String = ""
+    var imageCollection = [String] ()
+    var imageCount: Int = 0
     weak var likeCountLabel: UILabel!
     weak var likeButton: Likebutton!
+    
+    weak var fotoCollections: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = friendNameForTitle
-      
+        
+        imageCollection.append("news1")
+        imageCollection.append("news2")
+        imageCollection.append("news3")
+        imageCollection.append("user3")
+        imageCollection.append("background")
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         likeButton.addTarget(self, action: #selector(likeButtonDidtapped), for: .valueChanged)
     }
@@ -49,9 +58,39 @@ class FriendsCollectionViewController: UICollectionViewController {
         cell.likeCount.text = likeCount
         likeButton = cell.likeButton
         likeCountLabel = cell.likeCount
+        fotoCollections = cell.fotoColection
         
+        let swipeGestureRight = UISwipeGestureRecognizer(target: self, action: #selector(getSwipeAction(_:)))
+        swipeGestureRight.direction = [.right]
+        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(getSwipeAction(_:)))
+        swipeGestureLeft.direction = [.left]
+        
+        cell.fotoColection.addGestureRecognizer(swipeGestureRight)
+        cell.fotoColection.addGestureRecognizer(swipeGestureLeft)
+        cell.fotoColection.image = UIImage(named: imageCollection[0])
+
         return cell
     }
+    
+    @objc func getSwipeAction( _ recognizer : UISwipeGestureRecognizer){
+        
+        switch recognizer.direction {
+        case .right:
+            if imageCount != 0 {
+                imageCount -= 1
+            }
+            fotoCollections.image = UIImage(named: imageCollection[imageCount])
+        case .left:
+            if imageCount < imageCollection.count - 1 {
+                imageCount += 1
+            }
+            fotoCollections.image = UIImage(named: imageCollection[imageCount])
+       
+        default:
+            print(recognizer.direction)
+        }
+    }
+    
 
     // MARK: UICollectionViewDelegate
     
@@ -115,3 +154,6 @@ class Likebutton: UIControl {
 extension Int {
     var degreesToRadians: CGFloat { return CGFloat(self) * .pi / 180}
 }
+
+
+

@@ -18,6 +18,28 @@ class LauncheControler: UIViewController {
     @IBOutlet weak var userNametext: UITextField!
     @IBOutlet weak var userPassText: UITextField!
     
+    //MARK: - logo
+    let logoPath: UIBezierPath = {
+       // let pathRect = CGRect(x: 0, y: 0, width: 60, height: 60)
+        let path = UIBezierPath() // (roundedRect: pathRect, cornerRadius: 2)
+
+        path.move(to: CGPoint(x: 1, y: 1))
+        path.addLine(to: CGPoint(x: 10, y: 1))
+        path.addLine(to: CGPoint(x: 30, y: 50))
+        path.addLine(to: CGPoint(x: 30, y: 10))
+        path.move(to: CGPoint(x: 30, y: 30))
+        path.addLine(to: CGPoint(x: 48, y: 15))
+        path.addLine(to: CGPoint(x: 50, y: 11))
+        path.addLine(to: CGPoint(x: 50, y: 9))
+        path.move(to: CGPoint(x: 30, y: 30))
+        path.addLine(to: CGPoint(x: 52, y: 59))
+        
+        path.move(to: CGPoint(x: 0, y: 0))
+        
+        return path
+    }()
+    
+    
     //MARK: - Actions
     
     @IBAction func unwinSegue(unwindSegue: UIStoryboardSegue){
@@ -54,6 +76,28 @@ class LauncheControler: UIViewController {
         scrolView?.addGestureRecognizer(hideKeybordGesture)
         
         animations()
+        
+        let layer = CAShapeLayer()
+        layer.path = logoPath.cgPath
+        
+        layer.lineWidth = 5
+        
+        layer.strokeColor = UIColor.black.cgColor
+        layer.fillColor = UIColor.clear.cgColor
+       // layer.strokeEnd = 0
+        
+        titlrLabel.layer.addSublayer(layer)
+        
+        let strokeEnd = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeEnd))
+        strokeEnd.fromValue = 0.1
+        strokeEnd.toValue = 1
+        
+        let animationGroup = CAAnimationGroup()
+        animationGroup.duration = 2
+        animationGroup.animations = [strokeEnd]
+        animationGroup.repeatCount = 1 //.infinity
+        
+        layer.add(animationGroup, forKey: nil)
     }
     
     private func animations() {
@@ -66,9 +110,9 @@ class LauncheControler: UIViewController {
         animation.beginTime = CACurrentMediaTime() + 1
         animation.fillMode = CAMediaTimingFillMode.backwards
         
-        self.titlrLabel.layer.add(animation, forKey: nil)
-        self.userNametext.layer.add(animation, forKey: nil)
-        self.userPassText.layer.add(animation, forKey: nil)
+        //self.titlrLabel.layer.add(animation, forKey: nil)
+        //self.userNametext.layer.add(animation, forKey: nil)
+        //self.userPassText.layer.add(animation, forKey: nil)
         self.loginButton.layer.add(animation, forKey: nil)
     }
     
